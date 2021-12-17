@@ -18,3 +18,10 @@ root_block_device {
 output "instance_ami" { value = "${aws_instance.test_instance.ami}"}
 output "instance_type" { value = "${aws_instance.test_instance.instance_type}"}
 output "avalability_zone" { value = "${aws_instance.test_instance.avalability_zone}"}
+
+
+Variable.tf
+variable "ami_value" { default = "ami-002068ed284fb165b" }
+variable "instance" { default = "t2.micro" }
+variable "ip_address" { default = "true"}
+variable "avalability_zone" {default = "us-east-2b"}
