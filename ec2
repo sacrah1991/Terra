@@ -1,0 +1,15 @@
+resource "aws_instance" "test" {
+  ami = "ami-03a0c45ebc70f98ea"
+  instance_type = "t2.micro"
+  availability_zone = "us-east-2b"
+  associate_public_ip_address = "true"
+}
+output "instance_ami" {
+  value = "${aws_instance.test.ami}"
+}
+output "instance_type" {
+  value = "${aws_instance.test.instance_type}"
+}
+output "availability_zone" {
+  value = "${aws_instance.test.availability_zone}"
+}
