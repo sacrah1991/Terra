@@ -1,0 +1,20 @@
+resource "aws_instance" "test_instance" {
+    ami = "${var.ami_value}"
+    instance_type = "${var.instance}"
+    associate_public_ip_address = "${var.ip_address}" 
+    availability_zone = "${var.availability_zone}"   
+}
+tags = {
+  Name = "Terra"
+  Department = "cloud-devops"
+}
+root_block_device {
+    delete_on_termination = true
+    iops = 150
+    volume_size = 50
+    volume_type = "gp2"
+  }
+
+output "instance_ami" { value = "${aws_instance.test_instance.ami}"}
+output "instance_type" { value = "${aws_instance.test_instance.instance_type}"}
+output "avalability_zone" { value = "${aws_instance.test_instance.avalability_zone}"}
