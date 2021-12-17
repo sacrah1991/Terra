@@ -25,3 +25,11 @@ variable "ami_value" { default = "ami-002068ed284fb165b" }
 variable "instance" { default = "t2.micro" }
 variable "ip_address" { default = "true"}
 variable "avalability_zone" {default = "us-east-2b"}
+
+provider.tf
+provider "aws" {
+    access_key = "AKIAQZNGZXUWUSRLT4FM"
+    secret_key = "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"
+    region = "us-east-2"
+
+}
