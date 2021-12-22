@@ -1,0 +1,44 @@
+----main.tf-----
+resource "aws_s3_bucket" "my-s3-bucket" {
+  bucket_prefix = var.bucket_prefix
+  acl = var.acl
+  
+   versioning {
+    enabled = var.versioning
+  }
+  
+  tags = var.tags
+}
+
+
+------varible.tf------
+variable "aws_region" {
+  default     = "us-east-2"
+}
+
+variable "bucket_prefix" {
+    type        = string
+    default     = "my-s3bucket-"
+}
+
+variable "tags" {
+    type        = map
+    default     = {
+        environment = "DEV"
+        terraform   = "true"
+    }
+}
+
+variable "versioning" {
+    type        = bool
+    default     = true
+}
+
+variable "acl" {
+    type        = string
+    default     = "private"
+}
+
+
+-------output.tf------
+
